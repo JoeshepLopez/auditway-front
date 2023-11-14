@@ -1,155 +1,122 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUDITWAY</title>
-    <meta name="theme-color" content="#2091F9" />
-    <!--<link rel="stylesheet" href="styles.css" />-->
-  </head>
+<!-- home.component.html -->
 
-  <body>
-    <header class="hero">
-      <nav class="nav container">
-        <!-- Contenido del encabezado aquí -->
-      </nav>
-      <section class="hero__container container">
-        <h1 class="hero__title">AUDITWAY</h1>
-        <h2 class="subtitle">
-          Sistema de gestión y facturación electrónica online
-        </h2>
-        <p class="about__paragraph">
-          Automatiza tus tareas administrativas: Facturación electrónica
-          integrada a tu eCommerce, Control de stock multi-bodega, Reportes
-          automáticos.
-        </p>
-        <a href="#" class="cta">Subscríbete ahora</a>
-      </section>
-    </header>
+<!-- Header Section -->
+<header class="bg-dark text-white text-center py-5">
+  <h1 class="display-4">AuditWay</h1>
+</header>
 
-    <main>
-      <section class="container about">
-        <div class="about__main">
-          <article class="about__icons">
-            <img src="imagenes/arrow.svg" class="about__icon" />
-            <i class="fa-sharp fa-solid fa-file-invoice-dollar"></i>
-            <h3 class="about__title">Facturación</h3>
-            <p class="about__paragrah">
-              Facturación electrónica en $CLP. Cotizaciones y facturas
-              recurrentes Otros comprobantes de venta
-            </p>
-          </article>
+<!-- Testimonials Carousel Section -->
+<section class="my-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Testimonios de Clientes</h2>
 
-          <article class="about__icons">
-            <img src="images/paint.svg" class="about__icon" />
-            <h3 class="about__title">Reportes</h3>
-            <p class="about__paragrah">
-              Más de 35 reportes con información financiera, impositiva y de
-              gestión
-            </p>
-          </article>
-
-          <article class="about__icons">
-            <img src="images/code.svg" class="about__icon" />
-            <h3 class="about__title">Integraciones</h3>
-            <p class="about__paragrah">
-              Facturación masiva de ventas Control de stock
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="testimony">
-        <div class="testimony__container container">
-          <img
-            src="images/leftarrow.svg"
-            class="testimony__arrow"
-            id="before"
-          />
-
-          <section class="testimony__body testimony__body--show" data-id="1">
-            <div class="testimony__texts">
-              <h2 class="subtitle">
-                Mercado Libre, <span class="testimony__course">AUDITWAY</span>
-              </h2>
-              <p class="testimony__review">
-                Mercado Libre es una empresa multinacional argentina con sede en
-                Montevideo y dedicada al comercio electrónico en Latinoamérica.
-              </p>
-            </div>
-
-            <figure class="testimony__picture">
-              <img src="images/face.jpg" class="testimony__img" />
-            </figure>
-          </section>
-
-          <section class="testimony__body" data-id="2">
-            <div class="testimony__texts">
-              <h2 class="subtitle">
-                Correos Chile, <span class="testimony__course">AUDITWAY</span>
-              </h2>
-              <p class="testimony__review">
-                La Empresa de Correos de Chile es una empresa estatal y autónoma
-                chilena, dedicada al servicio de correspondencia, giros postales
-                y al mercado de envíos y encomiendas nacionales e
-                internacionales, y cumpliendo con las funciones de Servicio
-                Postal Universal
-              </p>
-            </div>
-
-            <figure class="testimony__picture">
-              <img src="images/face1.jpg" class="testimony__img" />
-            </figure>
-          </section>
-
-          <img src="images/rightarrow.svg" class="testimony__arrow" id="next" />
-        </div>
-      </section>
-
-      <section class="price container">
-        <div class="price__table">
-          <!-- Resto de tu contenido de precios -->
-        </div>
-      </section>
-
-      <section class="questions container">
-        <!-- Resto de tu contenido de preguntas frecuentes -->
-      </section>
-    </main>
-
-    <footer class="footer">
-      <section class="footer__container container">
-        <nav class="nav nav--footer">
-          <!-- Tu navegación de pie de página aquí -->
-        </nav>
-
-        <form
-          class="footer__form"
-          action="https://formspree.io/f/mknkkrkj"
-          method="POST"
-        >
-          <h2 class="footer__newsletter">Suscríbete a la newsletter</h2>
-          <div class="footer__inputs">
-            <input
-              type="email"
-              placeholder="Email:"
-              class="footer__input"
-              name="_replyto"
-              required
-            />
-            <input type="submit" value="Regístrate" class="footer__submit" />
+    <!-- Carrusel de Testimonios -->
+    <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Indicador / Diapositiva 1 (activa) -->
+        <div class="carousel-item active">
+          <!-- Contenido de la Diapositiva 1 -->
+          <div class="carousel-caption">
+            <h3>Cliente 1</h3>
+            <p>Testimonio del Cliente 1.</p>
           </div>
-        </form>
-      </section>
-
-      <section class="footer__copy container">
-        <div class="footer__social">
-          <!-- Tus íconos de redes sociales aquí -->
         </div>
-      </section>
-    </footer>
 
-    <!-- Agrega aquí tus scripts al final del body si es necesario -->
-  </body>
-</html>
+        <!-- Indicador / Diapositiva 2 -->
+        <div class="carousel-item">
+          <!-- Contenido de la Diapositiva 2 -->
+          <div class="carousel-caption">
+            <h3>Cliente 2</h3>
+            <p>Testimonio del Cliente 2.</p>
+          </div>
+        </div>
+
+        <!-- Indicador / Diapositiva 3 -->
+        <div class="carousel-item">
+          <!-- Contenido de la Diapositiva 3 -->
+          <div class="carousel-caption">
+            <h3>Cliente 3</h3>
+            <p>Testimonio del Cliente 3.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles del Carrusel -->
+      <a
+        class="carousel-control-prev"
+        href="#testimonialsCarousel"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#testimonialsCarousel"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Payment Plan Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Plan de Pagos</h2>
+    <div class="row">
+      <!-- Tarjeta 1 -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta 1</h5>
+            <!-- Contenido de la tarjeta -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta 2</h5>
+            <!-- Contenido de la tarjeta -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta 3</h5>
+            <!-- Contenido de la tarjeta -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="my-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Preguntas y Respuestas</h2>
+    <!-- Agrega aquí tu código para las preguntas y respuestas -->
+  </div>
+</section>
+
+<!-- Social Icons Section -->
+<section class="bg-dark text-white py-3">
+  <div class="container text-center">
+    <!-- Agrega aquí tus iconos de redes sociales (por ejemplo, Font Awesome) -->
+    <!-- Ejemplo con Font Awesome: -->
+    <i class="fab fa-facebook-f mx-2"></i>
+    <i class="fab fa-twitter mx-2"></i>
+    <i class="fab fa-instagram mx-2"></i>
+  </div>
+</section>
