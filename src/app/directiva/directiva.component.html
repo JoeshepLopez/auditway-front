@@ -1,11 +1,128 @@
-<button type="button" (click)="setHabilitar()" class="btn btn-primary my-3">{{ habilitar==true? 'Ocultar': 'Mostrar' }}</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+      }
 
-<div class="card">
-  <div class="card-header">
-    Listado de cursos
-  </div>
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+        border-right: 1px solid #333;
+        width: 80px; /* Ancho reducido del sidebar */
+        transition: width 0.3s ease; /* Agregado para una transición suave */
+      }
 
-  <ul class="list-group" *ngIf="habilitar == true">
-    <li class="list-group-item" *ngFor="let curso of listaCurso">{{ curso }}</li>
-  </ul>
-</div>
+      .sidebar:hover {
+        width: 240px; /* Ancho completo del sidebar al pasar el ratón */
+      }
+
+      .logo-container {
+        text-align: center;
+      }
+
+      .logo-container img {
+        border-radius: 50%;
+        width: 50px; /* Tamaño reducido de la imagen */
+        height: 50px; /* Tamaño reducido de la imagen */
+      }
+
+      .nav-link {
+        font-size: 14px; /* Tamaño del texto de los enlaces */
+      }
+
+      .nav-link i {
+        margin-right: 10px;
+      }
+
+      .main-content {
+        margin-left: 80px; /* Ancho del sidebar inicial */
+        padding: 20px;
+        transition: margin-left 0.3s ease; /* Agregado para una transición suave */
+      }
+
+      .sidebar:hover + .main-content {
+        margin-left: 240px; /* Ancho del sidebar al pasar el ratón */
+      }
+    </style>
+    <title>Tu Página</title>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+          <div class="sidebar-sticky">
+            <div class="logo-container">
+              <img
+                src="./assets/images/auditway-icon.jpg"
+                alt="Logo"
+                class="img-fluid mb-3"
+              />
+            </div>
+
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <i class="fas fa-home"></i> Reportes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-link"></i> Clientes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-link"></i> Inventario
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-link"></i> Configuración
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">
+                  <i class="fas fa-ban"></i> Disabled
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main
+          role="main"
+          class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content"
+        >
+          <!-- Contenido principal de tu página -->
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Agrega la biblioteca de iconos Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/your-font-awesome-kit.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

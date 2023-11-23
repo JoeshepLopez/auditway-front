@@ -1,122 +1,368 @@
-<!-- home.component.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Header Section -->
+  <header class="bg-light text-black text-center py-5">
+    <title>ng-bootstrap demo - Carousel - Basic</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css"
+    />
 
-<!-- Header Section -->
-<header class="bg-dark text-white text-center py-5">
-  <h1 class="display-4">AuditWay</h1>
-</header>
+    <h1 class="display-4">AuditWay</h1>
+    <p class="lead">
+      Sistema de gestión para pymes que facilita la administración.Facil emisión
+      de facturas y boletas electrónicas.
+    </p>
+  </header>
 
-<!-- Testimonials Carousel Section -->
-<section class="my-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Testimonios de Clientes</h2>
+  <!-- Introduccion-->
+  <!-- Sección con Enlace al Botón Anterior y Formulario -->
+  <section class="bg-light py-5 border border-dark rounded mt-5">
+    <div class="container">
+      <div class="row">
+        <!-- Contenido de Texto con Enlace -->
+        <div class="col-md-8">
+          <h2 class="mb-4">Solicita una demostración totalmente gratis</h2>
+          <p>
+            Agenda tu espacio con uno de nuestros asesores y descubre cómo
+            nuestro software puede transformar la forma en la que administras tu
+            negocio.
+          </p>
+          <img
+            src="./assets/images/contadora.png"
+            class="img-fluid"
+            alt="Imagen de ejemplo"
+          />
+        </div>
+        <!-- Formulario a la Derecha -->
+        <div class="col-md-4">
+          <form>
+            <h2 class="mb-4">
+              Déjanos tus Datos y un asesor te contactará a la brevedad
+            </h2>
+            <!-- Campo Correo Electrónico -->
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo Electrónico</label>
+              <input
+                type="email"
+                class="form-control"
+                id="correo"
+                placeholder="Ingrese su correo"
+              />
+            </div>
+            <!-- Campo Teléfono Móvil -->
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Teléfono Móvil</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="telefono"
+                placeholder="9xxxxxxxxx"
+              />
+            </div>
+            <!-- Selector de Perfil -->
+            <div class="mb-3">
+              <label for="perfil" class="form-label"
+                >¿Con qué perfil te identificas?</label
+              >
+              <select class="form-select" id="perfil">
+                <option value="empresa">Empresa</option>
+                <option value="contador">Contador</option>
+              </select>
+            </div>
+            <!-- Campo de Mensaje -->
+            <div class="mb-3">
+              <label for="mensaje" class="form-label"
+                >¿Cómo podemos ayudarte?</label
+              >
+              <textarea class="form-control" id="mensaje" rows="3"></textarea>
+            </div>
+            <!-- Checkboxes -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="politica" />
+              <label class="form-check-label" for="politica"
+                >Declaro aceptar Política de Privacidad</label
+              >
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="compartir-datos"
+              />
+              <label class="form-check-label" for="compartir-datos"
+                >Acepto compartir mis datos para recibir información de
+                AuditWay</label
+              >
+            </div>
+            <!-- Botón de Enviar -->
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Carrusel de Testimonios -->
-    <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <!-- Indicador / Diapositiva 1 (activa) -->
-        <div class="carousel-item active">
-          <!-- Contenido de la Diapositiva 1 -->
-          <div class="carousel-caption">
-            <h3>Cliente 1</h3>
-            <p>Testimonio del Cliente 1.</p>
+  <!-- Payment Plan Section -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Plan de Pagos</h2>
+      <div class="row">
+        <!-- Tarjeta 1 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Plan Básico</h5>
+              <p class="card-text">
+                Acceso a funciones esenciales con nuestro Plan Básico anual.
+              </p>
+              <p class="card-text">Precio: $1.2 millones al año</p>
+              <!-- Otro contenido de la tarjeta -->
+            </div>
           </div>
         </div>
 
-        <!-- Indicador / Diapositiva 2 -->
-        <div class="carousel-item">
-          <!-- Contenido de la Diapositiva 2 -->
-          <div class="carousel-caption">
-            <h3>Cliente 2</h3>
-            <p>Testimonio del Cliente 2.</p>
+        <!-- Tarjeta 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Plan Intermedio</h5>
+              <p class="card-text">
+                Acceso a funciones esenciales con nuestro Plan Básico anual.
+              </p>
+              <p class="card-text">Precio: $2.5 millones al año</p>
+              <!-- Contenido de la tarjeta -->
+            </div>
           </div>
         </div>
 
-        <!-- Indicador / Diapositiva 3 -->
-        <div class="carousel-item">
-          <!-- Contenido de la Diapositiva 3 -->
-          <div class="carousel-caption">
-            <h3>Cliente 3</h3>
-            <p>Testimonio del Cliente 3.</p>
+        <!-- Tarjeta 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Plan Avanzado</h5>
+              <p class="card-text">
+                Acceso a funciones esenciales con nuestro Plan Básico anual.
+              </p>
+              <p class="card-text">Precio: $5.0 millones al año</p>
+              <!-- Contenido de la tarjeta -->
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Controles del Carrusel -->
-      <a
+  <!-- Carrusel -->
+  <section class="bg-light py-5 border border-dark rounded">
+    <h2 class="text-center mb-4">
+      Lo bueno se comparte y nuestros clientes nos recomiendan
+    </h2>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div
+            class="image-container d-flex justify-content-center align-items-center border rounded-circle mr-4"
+          >
+            <img
+              src="./assets/images/hombre.jpg"
+              class="d-block w-100"
+              alt="..."
+              style="max-width: 25%; max-height: 25%; border-radius: 50%"
+            />
+            <div class="overlay">
+              <div class="circle"></div>
+              <p>
+                Venta Mix Carolina Pichun "Con AuditWay tengo más tiempo para
+                dedicarme a generar nuevas oportunidades de negocio en nuestros
+                canales de venta con la tranquilidad de saber que todo está
+                funcionando. Es una herramienta práctica y muy útil que cumple a
+                cabalidad con los requerimientos de cualquier emprendedor"
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div
+            class="image-container d-flex justify-content-center align-items-center border rounded-circle mr-4"
+          >
+            <img
+              src="./assets/images/mujer.jpg"
+              class="d-block w-100"
+              alt="..."
+              style="max-width: 25%; max-height: 25%; border-radius: 50%"
+            />
+            <div class="overlay">
+              <div class="circle"></div>
+              <p>
+                Estudio Modiis Andrés Salas "Cuando formalicé mi negocio buscaba
+                poder darle una imagen más formal y profesional a mi empresa en
+                la manera que emitía facturas a mis clientes. En ese sentido
+                AuditWay ha apañado súper bien al darle a mi estudio una imagen
+                corporativa desde ese punto ofreciendo un plus y diferenciándome
+                del resto"
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div
+            class="image-container d-flex justify-content-center align-items-center border rounded-circle mr-4"
+          >
+            <img
+              src="./assets/images/mujer2.jpg"
+              class="d-block w-100"
+              alt="..."
+              style="max-width: 25%; max-height: 25%; border-radius: 50%"
+            />
+            <div class="overlay">
+              <div class="circle"></div>
+              <p>
+                Miel Gibson Johana Agurto "AuditWay ha sido un gran aliado desde
+                el momento en el que formalicé mi empresa, ya que todas las
+                situaciones en las que he tenido que clarificar mis dudas han
+                sido cubiertas siempre por su equipo que están muy atentos a
+                atender mis consultas en el menor plazo posible"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Controles del carrusel -->
+      <button
         class="carousel-control-prev"
-        href="#testimonialsCarousel"
-        role="button"
-        data-slide="prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-      </a>
-      <a
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
         class="carousel-control-next"
-        href="#testimonialsCarousel"
-        role="button"
-        data-slide="next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-      </a>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Payment Plan Section -->
-<section class="bg-light py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Plan de Pagos</h2>
-    <div class="row">
-      <!-- Tarjeta 1 -->
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Tarjeta 1</h5>
-            <!-- Contenido de la tarjeta -->
+  <!-- FAQ Section -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Preguntas frecuentes</h2>
+      <!-- Agrega aquí tu código para las preguntas y respuestas -->
+
+      <div class="accordion" id="preguntasRespuestas">
+        <!-- Pregunta 1 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="pregunta1">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#respuesta1"
+              aria-expanded="true"
+              aria-controls="respuesta1"
+            >
+              ¿La implementación del sistema tiene un costo adicional?
+            </button>
+          </h3>
+          <div
+            id="respuesta1"
+            class="accordion-collapse collapse show"
+            aria-labelledby="pregunta1"
+            data-bs-parent="#preguntasRespuestas"
+          >
+            <div class="accordion-body">
+              No, en Auditway la implementación es completamente gratuita. Al
+              momento de contratar, serás acompañado por uno de nuestros
+              especialistas para guiarte en el uso de nuestros sistemas y hacer
+              la conexión con el SII, la cuál es muy sencilla.
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tarjeta 2 -->
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Tarjeta 2</h5>
-            <!-- Contenido de la tarjeta -->
+        <!-- Pregunta 2 (Puedes agregar más preguntas y respuestas según sea necesario) -->
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="pregunta2">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#respuesta2"
+              aria-expanded="false"
+              aria-controls="respuesta2"
+            >
+              ¿Funciona como sistema hacer la Operación Renta?
+            </button>
+          </h3>
+          <div
+            id="respuesta2"
+            class="accordion-collapse collapse"
+            aria-labelledby="pregunta2"
+            data-bs-parent="#preguntasRespuestas"
+          >
+            <div class="accordion-body">
+              Por supuesto que si, nuestro software te permitirá ahorrar
+              muchísimo tiempo durante este proceso. Podrás hacer Declaraciones
+              Juradas en 1 minuto.
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tarjeta 3 -->
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Tarjeta 3</h5>
-            <!-- Contenido de la tarjeta -->
+        <!-- Pregunta 3 (Puedes agregar más preguntas y respuestas según sea necesario) -->
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="pregunta3">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#respuesta3"
+              aria-expanded="false"
+              aria-controls="respuesta2"
+            >
+              ¿Es un software para contadores?
+            </button>
+          </h3>
+          <div
+            id="respuesta3"
+            class="accordion-collapse collapse"
+            aria-labelledby="pregunta3"
+            data-bs-parent="#preguntasRespuestas"
+          >
+            <div class="accordion-body">
+              Recomendamos que la persona que vaya hacer uso del sistema tenga
+              conocimientos contables. Sin duda, es el sistema que más contratan
+              los contadores, pero también las empresas que desean tener el
+              control de la información financiera de su negocio y poder
+              monitorear sus finanzas en cualquier momento.
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FAQ Section -->
-<section class="my-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Preguntas y Respuestas</h2>
-    <!-- Agrega aquí tu código para las preguntas y respuestas -->
-  </div>
-</section>
-
-<!-- Social Icons Section -->
-<section class="bg-dark text-white py-3">
-  <div class="container text-center">
-    <!-- Agrega aquí tus iconos de redes sociales (por ejemplo, Font Awesome) -->
-    <!-- Ejemplo con Font Awesome: -->
-    <i class="fab fa-facebook-f mx-2"></i>
-    <i class="fab fa-twitter mx-2"></i>
-    <i class="fab fa-instagram mx-2"></i>
-  </div>
-</section>
+  <!-- Social Icons Section -->
+  <section class="bg-white text-dark py-3">
+    <div class="container text-center">
+      <!-- Agrega aquí tus iconos de redes sociales (por ejemplo, Font Awesome) -->
+      <!-- Ejemplo con Font Awesome: -->
+      <i class="fab fa-facebook-f mx-2"></i>
+      <i class="fab fa-twitter mx-2"></i>
+      <i class="fab fa-instagram mx-2"></i>
+    </div>
+  </section>
+</html>

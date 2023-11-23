@@ -1,0 +1,17 @@
+/* dashboard.component.css */
+/* dashboard.component.css */
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+mat-nav-list {
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}

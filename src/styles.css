@@ -1,5 +1,10 @@
+/* Agrega esta línea al inicio del archivo styles.css */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+
 /* You can add global styles to this file, and also import other style files */
-html{
+html {
   position: relative;
   min-height: 100%;
 }
@@ -8,11 +13,20 @@ body {
   margin-bottom: 60px;
   min-height: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-.wrap{
+.wrap {
   padding-bottom: 60px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 html, body { height: 100%; }

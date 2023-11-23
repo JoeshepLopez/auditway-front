@@ -48,5 +48,14 @@ export const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
     data: { role: "ROLE_ADMIN" },
   },
-  /*{ path: 'ruta-para-super-admin', component: SuperAdminComponent, canActivate: [AuthGuard, SuperAdminGuard], data: { role: 'ROLE_SUPER_ADMIN' } }*/
+  {
+    path: "directiva",
+    component: DirectivaComponent,
+    children: [
+      { path: "clientes", component: ClientesComponent },
+      { path: "facturas", component: FacturasComponent },
+      { path: "", redirectTo: "clientes", pathMatch: "full" },
+    ],
+  },
+  { path: "", redirectTo: "/directiva", pathMatch: "full" },
 ];
