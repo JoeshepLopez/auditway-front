@@ -1,5 +1,7 @@
-// home.component.ts
 import { Component } from "@angular/core";
+import { ContactoService } from "./services/contacto.service";
+import { Contacto } from "./model/contacto";
+import swal from 'sweetalert2';
 
 @Component({
   selector: "app-home",
@@ -7,5 +9,33 @@ import { Component } from "@angular/core";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent {
-  // ... lógica del componente ...
+
+  private contacto: Contacto = new Contacto();
+
+  constructor(private contactoService: ContactoService) {}
+
+  guardar(): void {
+
+    if( this.contacto.email == '' && this.contacto.perfilContacto == ''){
+      swal('Solicitud de contacto', `¡Debe ingresar todos los campos del formulario!`, 'error');
+    } else {
+
+      this.contactoService.create(this.contacto).subscribe(
+        (response) => {
+          console.log('Formulario enviado con éxito:', response);
+          swal('Solicitud de contacto', `¡Formulario enviado con éxito!`, 'success');
+          this.contacto = new Contacto();
+        },
+        (error) => {
+          if (error.status === 400) {
+            console.error('Error al enviar el formulario. Por favor, completa todos los campos.');
+          } else {
+            console.error('Error al enviar el formulario:', error);
+          }
+        }
+      );
+
+    }
+  }
+
 }

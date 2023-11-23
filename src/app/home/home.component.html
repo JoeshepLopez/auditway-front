@@ -18,7 +18,7 @@
 
     <h1 class="display-4">AuditWay</h1>
     <p class="lead">
-      Sistema de gestión para pymes que facilita la administración.Facil emisión
+      Sistema de gestión para pymes que facilita la administración. Facil emisión
       de facturas y boletas electrónicas.
     </p>
   </header>
@@ -42,49 +42,52 @@
             alt="Imagen de ejemplo"
           />
         </div>
+
+
+
         <!-- Formulario a la Derecha -->
         <div class="col-md-4">
-          <form>
+          <form #formulario="ngForm">
             <h2 class="mb-4">
               Déjanos tus Datos y un asesor te contactará a la brevedad
             </h2>
             <!-- Campo Correo Electrónico -->
             <div class="mb-3">
-              <label for="correo" class="form-label">Correo Electrónico</label>
+              <label for="email" class="form-label">Correo Electrónico</label>
               <input
                 type="email"
                 class="form-control"
                 id="correo"
                 placeholder="Ingrese su correo"
+                [(ngModel)]="contacto.email" name="email" #email="ngModel"
               />
             </div>
             <!-- Campo Teléfono Móvil -->
             <div class="mb-3">
-              <label for="telefono" class="form-label">Teléfono Móvil</label>
+              <label for="phone" class="form-label">Teléfono Móvil</label>
               <input
                 type="tel"
                 class="form-control"
                 id="telefono"
                 placeholder="9xxxxxxxxx"
+                [(ngModel)]="contacto.phone" name="phone" #phone="ngModel"
               />
             </div>
             <!-- Selector de Perfil -->
             <div class="mb-3">
-              <label for="perfil" class="form-label"
-                >¿Con qué perfil te identificas?</label
-              >
-              <select class="form-select" id="perfil">
+              <label for="perfil" class="form-label">¿Con qué perfil te identificas?</label>
+              <select class="form-select" id="perfil" [(ngModel)]="contacto.perfilContacto" name="perfilContacto" #perfilContacto="ngModel">
                 <option value="empresa">Empresa</option>
                 <option value="contador">Contador</option>
               </select>
             </div>
+            
             <!-- Campo de Mensaje -->
             <div class="mb-3">
-              <label for="mensaje" class="form-label"
-                >¿Cómo podemos ayudarte?</label
-              >
-              <textarea class="form-control" id="mensaje" rows="3"></textarea>
-            </div>
+              <label for="mensaje" class="form-label">¿Cómo podemos ayudarte?</label>
+              <textarea class="form-control" id="mensaje" rows="3" [(ngModel)]="contacto.mensaje" name="mensaje" #mensaje="ngModel"></textarea>
+            </div>            
+
             <!-- Checkboxes -->
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="politica" />
@@ -104,9 +107,12 @@
               >
             </div>
             <!-- Botón de Enviar -->
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button (click)="guardar()" type="submit" class="btn btn-primary">Enviar</button>
           </form>
         </div>
+
+
+
       </div>
     </div>
   </section>
