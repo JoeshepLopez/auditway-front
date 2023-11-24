@@ -62,9 +62,17 @@ export class ProductoComponent implements AfterViewInit, OnInit {
   dialogoEliminarProducto(productoData: Producto){
     this.dialog.open(DialogoDeleteComponent, {
       disableClose: true, 
+      data: productoData  
     }).afterClosed().subscribe(resultado => {
-      if(resultado === 'creado'){
-        this.getListProductos();
+      if(resultado === 'eliminar'){
+        this.productoService.delete(productoData.id).subscribe({
+            next:(data) => {
+              this.mostrarAlerta("Producto fue eliminado", "listo");
+              this.getListProductos();
+            }, error: (e) => {
+              this.mostrarAlerta("No se pudo eliminar producto, esta siendo utilizado en algún documento", "error");
+            }
+          })
       }
     });
   }

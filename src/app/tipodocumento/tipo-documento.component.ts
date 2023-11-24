@@ -63,9 +63,17 @@ export class TipoDocumentoComponent implements AfterViewInit, OnInit {
   dialogoEliminarTipoDocumento(tipoDocumentoData: TipoDocumento){
     this.dialog.open(DialogoDeleteTipoDocComponent, {
       disableClose: true, 
+      data: tipoDocumentoData
     }).afterClosed().subscribe(resultado => {
-      if(resultado === 'creado'){
-        this.getListDocument();
+      if(resultado === 'eliminar'){
+        this.tipoDocumentoService.delete(tipoDocumentoData.id).subscribe({
+            next:(data) => {
+              this.mostrarAlerta("Tipo de documento fue eliminado", "listo");
+              this.getListDocument();
+            }, error: (e) => {
+              this.mostrarAlerta("No se pudo tipo de documento, esta siendo utilizado en algún documento", "error");
+            }
+          })
       }
     });
   }

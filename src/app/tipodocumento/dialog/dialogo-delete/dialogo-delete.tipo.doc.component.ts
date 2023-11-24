@@ -20,6 +20,9 @@ export class DialogoDeleteTipoDocComponent implements OnInit {
   }
 
   confirmDelete(){
+
+    console.log( 'aqui',this.tipoDocumentoData );
+
     if(this.tipoDocumentoData){
       this.dialogoReferencia.close("eliminar");
     }
