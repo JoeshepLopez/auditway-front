@@ -1,0 +1,51 @@
+<div style="width: 59%; margin: 100px auto;">
+  <h1>Folios</h1>
+
+  <button mat-raised-button color="primary" (click)="dialogoNuevoFolio()">Crear Folio</button>
+
+
+  <div class="mat-elevation-z8" >
+    <table mat-table [dataSource]="dataSource" class="mat-table">
+  
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Id </th>
+    <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipoDocumento">
+    <th mat-header-cell *matHeaderCellDef style="width:23%;"> Tipo de documento</th>
+    <td mat-cell *matCellDef="let element" style="width: 23%;"> {{element.tipoDocumento}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="folioDesde">
+    <th mat-header-cell *matHeaderCellDef style="width: 23%;"> Folio Desde </th>
+    <td mat-cell *matCellDef="let element" style="width: 23%;"> {{element.folioDesde}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="folioHasta">
+    <th mat-header-cell *matHeaderCellDef style="width: 23%;"> Folio Hasta </th>
+    <td mat-cell *matCellDef="let element" style="width: 23%;"> {{element.folioHasta}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef style="width: 60%;"> </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="primary" (click)="dialogoEditarFolio(element)">
+        <mat-icon>edit</mat-icon>  
+      </button>
+      <button mat-icon-button color="warn" (click)="dialogoEliminarFolio(element)">  
+        <mat-icon>delete</mat-icon>  
+      </button>
+    </td>
+  </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>

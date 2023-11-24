@@ -12,8 +12,17 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/directivas">Directivas</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthenticated()">
         <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link" [routerLink]="['/folios']">Folios</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link" [routerLink]="['/tipo-documento']">Tipo de documento</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link" [routerLink]="['/productos']">Productos</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">

@@ -38,6 +38,10 @@ import { ProductoComponent } from "./productos/producto.component";
 import { DialogAddEditProductoComponent } from "./productos/dialog/dialog-add-edit/dialog-add-edit.component";
 import { DialogoDeleteComponent } from "./productos/dialog/dialogo-delete/dialogo-delete.component";
 import { DialogoDeleteTipoDocComponent } from "./tipodocumento/dialog/dialogo-delete/dialogo-delete.tipo.doc.component";
+import { TipoDocumentoService } from "./tipodocumento/services/tipo-documento.service";
+import { DialogoDeleteFolioComponent } from "./folio/dialog/dialogo-delete/dialogo-delete.folio.component";
+import { DialogAddEditFolioComponent } from "./folio/dialog/dialog-add-edit/dialog-add-edit.folio.component";
+import { FolioComponent } from "./folio/folio.component";
 
 
 @NgModule({
@@ -59,7 +63,10 @@ import { DialogoDeleteTipoDocComponent } from "./tipodocumento/dialog/dialogo-de
     ProductoComponent,
     DialogAddEditProductoComponent,
     DialogoDeleteComponent,
-    DialogoDeleteTipoDocComponent
+    DialogoDeleteTipoDocComponent,
+    DialogoDeleteFolioComponent,
+    DialogAddEditFolioComponent,
+    FolioComponent
   ],
 
   imports: [
@@ -99,7 +106,12 @@ import { DialogoDeleteTipoDocComponent } from "./tipodocumento/dialog/dialogo-de
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   entryComponents:
-    [DialogAddEditComponent, DialogAddEditProductoComponent, DialogoDeleteComponent, DialogoDeleteTipoDocComponent],
+    [ DialogAddEditComponent, 
+      DialogAddEditProductoComponent, 
+      DialogoDeleteComponent, 
+      DialogoDeleteTipoDocComponent,
+      DialogoDeleteFolioComponent,
+      DialogAddEditFolioComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

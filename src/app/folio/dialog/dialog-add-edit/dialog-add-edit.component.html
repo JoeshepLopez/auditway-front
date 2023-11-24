@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Producto</h1>
+<div mat-dialog-content>
+
+  <form [formGroup]="formFolio">
+    <mat-grid-list cols="1" rowHeight="80px">
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo de documento</mat-label>
+          <mat-select formControlName="tipoDocumento">
+            <mat-option *ngFor="let item of listTipoDocumentos" [value]="item.id">
+              {{item.tipoDocumento}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Folio Desde</mat-label>
+          <input matInput formControlName="folioDesde" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Folio Hasta</mat-label>
+          <input matInput formControlName="folioHasta" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <button mat-raised-button color="primary" (click)="addEditFolio()" [disabled]="formFolio.invalid">
+    {{btnAccion}}
+  </button>
+</div>
