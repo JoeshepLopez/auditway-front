@@ -13,8 +13,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatDatepickerModule } from "@angular/material";
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatDatepickerModule, MatDialogModule, MatGridListModule, MatIconModule, MatNativeDateModule, MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule } from "@angular/material";
+import { MatMomentDateModule, MomentDateModule } from "@angular/material-moment-adapter";
 import { DetalleComponent } from "./clientes/detalle/detalle.component";
 import { LoginComponent } from "./usuarios/login.component";
 import { TokenInterceptor } from "./usuarios/interceptors/token.interceptor";
@@ -36,6 +36,10 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 //import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
+import { TipoDocumentoComponent } from "./tipodocumento/tipo-documento.component";
+import { MatButtonModule } from "@angular/material/button";
+//import { ReactiveFormsModule } from "@angular/forms";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +54,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     DetalleFacturaComponent,
     FacturasComponent,
     HomeComponent,
+    TipoDocumentoComponent
     //MatSidenavModule,
 
     /*SliderComponent,*/
@@ -69,6 +74,20 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     MatFormFieldModule,
     NgbModule,
     NgbCarouselModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatSelectModule, 
+    MatButtonModule, 
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    MomentDateModule,
+    MatSnackBarModule,
+    MatIconModule, 
+    MatDialogModule,
+    MatGridListModule,
     //MatSlideToggleModule,
   ],
 

@@ -16,7 +16,13 @@ export class HomeComponent {
 
   guardar(): void {
 
-    if( this.contacto.email == '' && this.contacto.perfilContacto == ''){
+    console.log( this.contacto );
+
+
+
+    if( this.contacto.email == undefined || this.contacto.perfilContacto == undefined){
+
+
       swal('Solicitud de contacto', `¡Debe ingresar todos los campos del formulario!`, 'error');
     } else {
 

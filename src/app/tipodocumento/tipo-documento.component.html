@@ -1,0 +1,47 @@
+<div style="width: 59%; margin: 100px auto;">
+  <h1>Listado tipo de documentos</h1>
+
+  <!--
+  <mat-form-field>
+    <mat-form-label>Filter</mat-form-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex.ium" #input>
+  </mat-form-field>
+  -->
+
+  <div class="mat-elevation-z8" >
+    <table mat-table [dataSource]="dataSource" class="mat-table">
+  
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Id </th>
+    <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="numeroDocumento">
+    <th mat-header-cell *matHeaderCellDef style="width:50%;"> No. Documento </th>
+    <td mat-cell *matCellDef="let element" style="width: 50%;"> {{element.numeroDocumento}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipoDocumento">
+    <th mat-header-cell *matHeaderCellDef style="width: 50%;"> Tipo Documento </th>
+    <td mat-cell *matCellDef="let element" style="width: 50%;"> {{element.tipoDocumento}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef style="width: 30%;"> </th>
+    <td mat-cell *matCellDef="let element" style="width: 30%;">
+      <button mat-icon-button color="primary" aria-label="Example">
+        <mat-icon>home</mat-icon>  
+      </button>
+    </td>
+  </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>

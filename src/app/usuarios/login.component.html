@@ -1,21 +1,34 @@
-<div class="card border-primary text-center">
-  <div class="card-header">{{titulo}}</div>
-  <div class="card-body">
+<div class="container mt-5" >
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card border-dark rounded">
+        <div class="card-header text-center bg-dark text-white">
+          {{ titulo }}
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input [(ngModel)]="usuario.username" type="text" class="form-control" name="username" id="username" placeholder="Username" autofocus required>
+            </div>
 
-    <form method="post">
-      <div class="form-group col-sm-6">
-        <input [(ngModel)]="usuario.username" type="text" class="form-control"
-        name="username" id="username" placeholder="Username" autofocus required>
-      </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input [(ngModel)]="usuario.password" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+            </div>
 
-      <div class="form-group col-sm-6">
-        <input [(ngModel)]="usuario.password" type="password" class="form-control"
-        name="password" id="password" placeholder="Password" required>
-      </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-dark btn-block">
+                <i class="fas fa-sign-in-alt"></i> Login
+              </button>
+            </div>
 
-      <div class="form-group col-sm-6">
-        <input (click)='login()' type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
+            <div class="form-group text-center">
+              <a href="#" class="text-muted">¿Olvidó su contraseña?</a>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
