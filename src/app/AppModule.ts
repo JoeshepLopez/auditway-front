@@ -26,19 +26,19 @@ import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { HomeComponent } from "./home/home.component";
 import { routes } from "./app.module";
-import { MatSidenavModule } from "@angular/material/sidenav";
 
-/*import { SliderComponent } from './slider/slider.component';*/
 import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
 
-//boostrap
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-
-//import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 import { TipoDocumentoComponent } from "./tipodocumento/tipo-documento.component";
 import { MatButtonModule } from "@angular/material/button";
-//import { ReactiveFormsModule } from "@angular/forms";
+import { DialogAddEditComponent } from "./tipodocumento/dialog/dialog-add-edit/dialog-add-edit.component";
+import { ProductoComponent } from "./productos/producto.component";
+import { DialogAddEditProductoComponent } from "./productos/dialog/dialog-add-edit/dialog-add-edit.component";
+import { DialogoDeleteComponent } from "./productos/dialog/dialogo-delete/dialogo-delete.component";
+import { DialogoDeleteTipoDocComponent } from "./tipodocumento/dialog/dialogo-delete/dialogo-delete.tipo.doc.component";
+
 
 @NgModule({
   declarations: [
@@ -54,10 +54,12 @@ import { MatButtonModule } from "@angular/material/button";
     DetalleFacturaComponent,
     FacturasComponent,
     HomeComponent,
-    TipoDocumentoComponent
-    //MatSidenavModule,
-
-    /*SliderComponent,*/
+    TipoDocumentoComponent,
+    DialogAddEditComponent,
+    ProductoComponent,
+    DialogAddEditProductoComponent,
+    DialogoDeleteComponent,
+    DialogoDeleteTipoDocComponent
   ],
 
   imports: [
@@ -88,7 +90,6 @@ import { MatButtonModule } from "@angular/material/button";
     MatIconModule, 
     MatDialogModule,
     MatGridListModule,
-    //MatSlideToggleModule,
   ],
 
   providers: [
@@ -97,6 +98,8 @@ import { MatButtonModule } from "@angular/material/button";
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
+  entryComponents:
+    [DialogAddEditComponent, DialogAddEditProductoComponent, DialogoDeleteComponent, DialogoDeleteTipoDocComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

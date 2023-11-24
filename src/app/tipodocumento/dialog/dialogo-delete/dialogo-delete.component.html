@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Eliminar Tipo de Documento</h1>
+<div mat-dialog-content>
+
+  ¿Desea eliminar el tipo de documento <strong>{{tipoDocumentoData.tipoDocumento}}</strong>?
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">No, Volver</button>
+  <button mat-raised-button color="primary" 
+          (click)="confirmDelete()"
+          cdkFocusInitial>
+    Si, eliminar
+  </button>
+</div>

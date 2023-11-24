@@ -14,6 +14,7 @@ import { FacturasComponent } from "./facturas/facturas.component";
 
 import { HomeComponent } from "./home/home.component";
 import { TipoDocumentoComponent } from "./tipodocumento/tipo-documento.component";
+import { ProductoComponent } from "./productos/producto.component";
 /* import { SuperAdminGuard } from './usuarios/guards/super-admin.guard;*/
 
 registerLocaleData(localeES, "es");
@@ -52,7 +53,14 @@ export const routes: Routes = [
   {
     path: "tipo-documento",
     component: TipoDocumentoComponent,
-
+    canActivate: [AuthGuard, RoleGuard],
+    data: { role: "ROLE_ADMIN" },
+  },
+  {
+    path: "productos",
+    component: ProductoComponent,
+    canActivate: [AuthGuard, RoleGuard],
+    data: { role: "ROLE_ADMIN" },
   },
   {
     path: "directiva",

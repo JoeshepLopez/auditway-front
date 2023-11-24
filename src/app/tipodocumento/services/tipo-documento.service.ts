@@ -23,8 +23,8 @@ import { TipoDocumento } from '../model/tipo-documento';
       return this.http.post<TipoDocumento>(this.urlEndPointCreate, tipoDocumento);
     }
   
-    update(tipoDocumento: TipoDocumento): Observable<TipoDocumento> {
-      const url = `${this.urlEndPointUpdate}/${tipoDocumento.id}`;
+    update(id: number, tipoDocumento: TipoDocumento): Observable<TipoDocumento> {
+      const url = `${this.urlEndPointUpdate}/${id}`;
       return this.http.put<TipoDocumento>(url, tipoDocumento);
     }
   

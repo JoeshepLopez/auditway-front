@@ -1,4 +1,5 @@
-table {
-    width: 100%;
-}
-
+.my-dialog {
+    max-width: 60%; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto;
+  }
+  
