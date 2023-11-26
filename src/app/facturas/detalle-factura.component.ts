@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FacturaService } from './services/factura.service';
 import { Factura } from './models/factura';
 import { ActivatedRoute } from '@angular/router';
+import { TipoDocumento } from './models/tipo-documento';
 
 @Component({
   selector: 'app-detalle-factura',
-  templateUrl: './detalle-factura.component.html'
+  templateUrl: './detalle-factura.component.html',
+  styles: ['./detalle-factura.component.css']
 })
 export class DetalleFacturaComponent implements OnInit {
 
   factura: Factura;
   titulo: string = 'Factura';
+  tipoDocumento: TipoDocumento = new TipoDocumento();
 
   constructor(private facturaService: FacturaService,
     private activatedRoute: ActivatedRoute) { }

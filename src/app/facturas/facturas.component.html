@@ -11,54 +11,90 @@
     <div class="card bg-light" style="max-width: 80%;">
       <div class="card-header">{{ titulo }}</div>
       <div class="card-body">
+
+
         <h4 class="card-title">
-          <a [routerLink]="['/clientes']" class="btn btn-light btn-xs">&laquo; volver</a>
+          <!--<a [routerLink]="['/clientes']" class="btn btn-light btn-xs">&laquo; volver</a>-->
+
+          <button [routerLink]="['/clientes']" mat-raised-button mat-dialog-close color="warn">
+            <mat-icon>arrow_back</mat-icon>    
+            Volver
+          </button>
+
         </h4>
 
         <form #facturaForm="ngForm">
           <div class="form-group row" *ngIf="factura.cliente">
-            <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
-            <div class="col-sm-6">
-              <input type="text" name="cliente" value="{{ factura.cliente.nombre }} {{ factura.cliente.apellido }}" class="form-control" disabled>
+            <label for="cliente" class="col-sm-3 col-form-label">Cliente</label>
+            <div class="col-sm-8">
+              <input type="text" name="cliente" value="{{ factura.cliente.nombre }} {{ factura.cliente.apellido }}"
+                class="form-control" disabled>
             </div>
           </div>
 
           <div class="form-group row" *ngIf="factura.cliente">
-            <label for="cliente" class="col-sm-2 col-form-label">Rut</label>
-            <div class="col-sm-6">
+            <label for="cliente" class="col-sm-3 col-form-label">Rut</label>
+            <div class="col-sm-8">
               <input type="text" name="rut" value="{{ factura.cliente.rut }}" class="form-control" disabled>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
-            <div class="col-sm-6">
-              <input type="text" name="descripcion" [(ngModel)]="factura.descripcion" class="form-control" required #descripcion="ngModel">
-              <div class="alert alert-danger" *ngIf="descripcion.invalid && descripcion.touched || descripcion.invalid && facturaForm.submitted">
+            <label for="descripcion" class="col-sm-3 col-form-label">Descripción</label>
+            <div class="col-sm-8">
+              <input type="text" name="descripcion" [(ngModel)]="factura.descripcion" class="form-control" required
+                #descripcion="ngModel">
+              <div class="alert alert-danger"
+                *ngIf="descripcion.invalid && descripcion.touched || descripcion.invalid && facturaForm.submitted">
                 La descripción es requerida.
               </div>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="observacion" class="col-sm-2 col-form-label">Observación</label>
-            <div class="col-sm-6">
+            <label for="observacion" class="col-sm-3 col-form-label">Observación</label>
+            <div class="col-sm-8">
               <textarea name="observacion" [(ngModel)]="factura.observacion" class="form-control"></textarea>
             </div>
           </div>
 
+          <!-- Campo Región -->
           <div class="form-group row">
-            <div class="col-sm-6">
+            <label for="region" class="col-form-label col-sm-3">Tipo de Documento</label>
+            <div class="col-sm-8">
+              <select [compareWith]="compararTipoDocumento" class="form-control" [(ngModel)]="factura.tipoDocumento"
+                name="tipoDocumento" style="width:100%;" placeholder="Seleccione tipo de documento">
+                <option [ngValue]="undefined">--- Seleccione tipo de documento ---</option>
+                <option *ngFor="let td of tipoDocumentos" [ngValue]="td.numeroDocumento">{{td.tipoDocumento}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-8">
               <mat-form-field>
-                <input type="text" placeholder="Añadir producto" aria-label="Productos" matInput [formControl]="autocompleteControl" [matAutocomplete]="auto">
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="mostrarNombre" (optionSelected)="seleccionarProducto($event)">
+                <input type="text" placeholder="Añadir producto" aria-label="Productos" matInput
+                  [formControl]="autocompleteControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="mostrarNombre"
+                  (optionSelected)="seleccionarProducto($event)">
                   <mat-option *ngFor="let producto of productosFiltrados | async" [value]="producto">
                     {{producto.nombre}}
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
               <div class="alert alert-danger" *ngIf="autocompleteControl.invalid && facturaForm.submitted">
-                La factura no puede no tener líneas!.
+                EL documento debe tener productos asociados.
+              </div>
+            </div>
+          </div>
+
+          <!-- Nuevo Campo: Enviar al SII -->
+          <div class="form-group row">
+            <div class="col-sm-8">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="facturaEnviadaSii" name="facturaEnviadaSii"
+                  [(ngModel)]="factura.facturaEnviadaSii">
+                <label class="form-check-label" for="facturaEnviadaSii">Enviar al SII</label>
               </div>
             </div>
           </div>
@@ -82,18 +118,30 @@
               <tr *ngFor="let item of factura.items">
                 <td>{{item.producto.nombre}}</td>
                 <td>{{item.producto.precio}}</td>
-                <td><input type="number" value="{{item.cantidad}}" class="form-control col-sm-4" (change)="actualizarCantidad(item.producto.id, $event)"></td>
+                <td><input type="number" value="{{item.cantidad}}" class="form-control col-sm-4"
+                    (change)="actualizarCantidad(item.producto.id, $event)"></td>
                 <td>{{item.calcularImporte()}}</td>
-                <td><button class="btn btn-danger btn-sm" type="button" (click)="eliminarItemFactura(item.producto.id)">x</button></td>
+                <td><button class="btn btn-danger btn-sm" type="button"
+                    (click)="eliminarItemFactura(item.producto.id)">x</button></td>
               </tr>
             </tbody>
           </table>
 
-          <h5 class="float-right" *ngIf="factura.items.length > 0">Gran Total: <span class="badge badge-secondary">{{factura.calcularGranTotal()}}</span></h5>
+          <h5 class="float-right" *ngIf="factura.items.length > 0">Gran Total: <span
+              class="badge badge-secondary">{{factura.calcularGranTotal()}}</span></h5>
 
           <div class="form-group row">
-            <div class="col-sm-6">
-              <input type="submit" (click)="create(facturaForm)" value="Crear Factura" class="btn btn-secondary">
+            <div class="col-sm-8">
+
+              
+            <button (click)="create(facturaForm)" mat-raised-button color="primary">
+              <mat-icon>add_circle</mat-icon>    
+              Emitir Documento
+            </button>
+
+              <!--
+              <input type="submit" (click)="create(facturaForm)" value="Emitir Documento" class="btn btn-secondary">
+              -->
             </div>
           </div>
         </form>

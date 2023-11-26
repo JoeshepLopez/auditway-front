@@ -1,54 +1,68 @@
-<div class="card bg-light" *ngIf="factura">
-  <div class="card-header">{{titulo}}: {{factura.descripcion}}</div>
-  <div class="card-body">
-    <h4 class="card-title">
-      <a [routerLink]="['/clientes']" class="btn btn-light btn-xs">&laquo; volver</a>
-    </h4>
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="card bg-light" *ngIf="factura">
+        <div class="card-header">Detalle de DTE</div>
+        <div class="card-body">
+          <h4 class="card-title">
+            <button [routerLink]="['/clientes']" mat-raised-button color="warn">
+              <mat-icon>arrow_back</mat-icon>    
+              Volver
+            </button>
+          </h4>
 
-    <ul class="list-group my-2">
-      <li class="list-group-item list-group-item-primary">Datos del cliente</li>
-      <li class="list-group-item">{{factura.cliente.nombre}}</li>
-      <li class="list-group-item">{{factura.cliente.apellido}}</li>
-    </ul>
+          <ul class="list-group my-2">
+            <li class="list-group-item list-group-item-primary">Datos del cliente</li>
+            <li class="list-group-item">Nombre: {{factura.cliente.nombre}}</li>
+            <li class="list-group-item">Apellido: {{factura.cliente.apellido}}</li>
+            <li class="list-group-item">Rut: {{factura.cliente.rut}}</li>
+          </ul>
 
-    <ul class="list-group my-2">
-      <li class="list-group-item list-group-item-primary">Datos de la factura</li>
-      <li class="list-group-item">Folio: {{factura.id}}</li>
-      <li class="list-group-item">Descripción: {{factura.descripcion}}</li>
-      <li class="list-group-item">Fecha: {{factura.createAt}}</li>
-    </ul>
+          <ul class="list-group my-2">
+            <li class="list-group-item list-group-item-primary">Datos de la factura</li>
+            <li class="list-group-item">Folio: {{factura.numeroFolio}}</li>
+            <li class="list-group-item">Descripción: {{factura.descripcion}}</li>
+            <li class="list-group-item">Fecha: {{factura.createAt}}</li>
+            <li *ngIf="factura.nombreTipoDocumento" class="list-group-item">Tipo de documento: {{factura.nombreTipoDocumento}}</li>
+            <li *ngIf="factura.estadoSii" class="list-group-item">Estado SII: <strong>{{factura.estadoSii}}</strong></li>
+          </ul>
 
-    <table class="table table-striped table-hover table-bordered my-3">
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of factura.items">
-          <td>{{item.producto.nombre}}</td>
-          <td>{{item.producto.precio}}</td>
-          <td>{{item.cantidad}}</td>
-          <td>{{item.importe}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <h5 class="float-right">
-      <span>Gran Total</span>: <span class="badge badge-secondary">{{factura.total}}</span>
-    </h5>
+          <table class="table table-striped table-hover table-bordered my-3">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of factura.items">
+                <td>{{item.producto.nombre}}</td>
+                <td>{{item.producto.precio}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.importe}}</td>
+              </tr>
+            </tbody>
+          </table>
 
-    <div class="card border-info mb-4" style="max-width: 350px;">
-      <div class="card card-header">
-        Observaciones
+          <div class="card border-info mb-4">
+            <div class="card card-header">
+              Observaciones
+            </div>
+            <div class="card card-body">
+              <p *ngIf="!factura.observacion">No tiene observación</p>
+              <p *ngIf="factura.observacion">{{factura.observacion}}</p>
+            </div>
+            
+          </div>
+
+          <h5 class="float-right">
+            <span>Gran Total</span>: <span class="badge badge-secondary">{{factura.total}}</span>
+          </h5>
+
+        </div>
       </div>
-      <div class="card card-body">
-        <p *ngIf="!factura.observacion">No tiene observación</p>
-        <p *ngIf="factura.observacion">{{factura.observacion}}</p>
-      </div>
-
     </div>
   </div>
 </div>

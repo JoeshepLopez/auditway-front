@@ -9,6 +9,12 @@ export class Factura {
   cliente: Cliente;
   total: number;
   createAt: string;
+  tipoDocumento: string;
+  facturaEnviadaSii: boolean;
+  estadoEnvioSii: number;
+  estadoSii: string;
+  numeroFolio: number;
+  nombreTipoDocumento: string;
 
   calcularGranTotal(): number {
     this.total = 0;

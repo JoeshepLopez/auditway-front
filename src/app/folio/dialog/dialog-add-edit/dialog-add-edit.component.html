@@ -8,7 +8,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Tipo de documento</mat-label>
           <mat-select formControlName="tipoDocumento">
-            <mat-option *ngFor="let item of listTipoDocumentos" [value]="item.id">
+            <mat-option *ngFor="let item of listTipoDocumentos" [value]="item.numeroDocumento">
               {{item.tipoDocumento}}
             </mat-option>
           </mat-select>

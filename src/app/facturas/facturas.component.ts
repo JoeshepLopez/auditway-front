@@ -12,6 +12,7 @@ import { ItemFactura } from './models/item-factura';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
 
 import swal from 'sweetalert2';
+import { TipoDocumento } from './models/tipo-documento';
 
 @Component({
   selector: 'app-facturas',
@@ -20,11 +21,14 @@ import swal from 'sweetalert2';
 export class FacturasComponent implements OnInit {
 
   titulo: string = 'Emisión de Documento';
+
   factura: Factura = new Factura();
 
   autocompleteControl = new FormControl();
 
   productosFiltrados: Observable<Producto[]>;
+
+  tipoDocumentos: TipoDocumento[] = [];
 
   constructor(private clienteService: ClienteService,
     private facturaService: FacturaService,
@@ -42,6 +46,8 @@ export class FacturasComponent implements OnInit {
         map(value => typeof value === 'string' ? value : value.nombre),
         flatMap(value => value ? this._filter(value) : [])
       );
+
+    this.facturaService.getListado().subscribe(tp => this.tipoDocumentos = tp);
   }
 
   private _filter(value: string): Observable<Producto[]> {
@@ -111,17 +117,31 @@ export class FacturasComponent implements OnInit {
   }
 
   create(facturaForm): void {
-    console.log(this.factura);
-    if (this.factura.items.length == 0) {
+    if (this.factura.items.length === 0) {
       this.autocompleteControl.setErrors({ 'invalid': true });
     }
-
+  
     if (facturaForm.form.valid && this.factura.items.length > 0) {
-      this.facturaService.create(this.factura).subscribe(factura => {
-        swal(this.titulo, `Factura ${factura.descripcion} creada con éxito!`, 'success');
-        this.router.navigate(['/clientes']);
-      });
+      this.facturaService.create(this.factura).subscribe(
+        (factura) => {
+          swal(this.titulo, `Documento creado con éxito!`, 'success');
+          this.router.navigate(['/clientes']);
+        },
+        (error) => {
+          console.error('Error al crear la factura:', error);
+          swal('Error', 'No se pudo emitir el documento, por favor actualiza el stock de productos y/o folios.', 'error');
+        }
+      );
     }
+  }
+  
+
+  compararTipoDocumento(o1: TipoDocumento, o2: TipoDocumento): boolean {
+    if (o1 === undefined && o2 === undefined) {
+      return true;
+    }
+
+    return o1 === null || o2 === null || o1 === undefined || o2 === undefined ? false : o1.id === o2.id;
   }
 
 }
