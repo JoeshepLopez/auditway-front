@@ -10,7 +10,7 @@ import { Producto } from '../model/producto';
   
     private urlEndPointListado: string = 'http://localhost:8080/api/list/products';
     private urlEndPointCreate: string = 'http://localhost:8080/api/create/product';
-    private urlEndPointUpdate: string = 'http://localhost:8080/api/update/product';
+    private urlEndPointUpdate: string = 'http://localhost:8080/api/update/producto';
     private urlEndPointDelete: string = 'http://localhost:8080/api/delete/product';
 
     constructor(private http: HttpClient) { }

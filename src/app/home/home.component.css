@@ -1,0 +1,105 @@
+/* directiva.component.css */
+.col-md-4 {
+    border: 2px solid #ccc;
+    box-shadow: 2px 2px 5px #888;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .col-md-4 h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los campos de input, textarea y select */
+  .mb-3 {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  
+  .form-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para los checkboxes */
+  .form-check {
+    margin-top: 10px;
+  }
+  
+  /* Estilos para el botón de enviar */
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  /* Estilos para la sección de Plan de Pagos */
+  .bg-light {
+    background-color: #f8f9fa; /* Cambia el color de fondo según sea necesario */
+  }
+  
+  .py-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Estilos para las tarjetas */
+  .col-md-4 {
+    text-align: center;
+  }
+  
+  /* Primera tarjeta - Borde azul */
+  .col-md-4:nth-child(1) .card {
+    border: 2px solid #007bff; /* Borde de color azul */
+  }
+  
+  /* Segunda tarjeta - Borde verde */
+  .col-md-4:nth-child(2) .card {
+    border: 2px solid #28a745; /* Borde de color verde */
+  }
+  
+  /* Tercera tarjeta - Borde naranja */
+  .col-md-4:nth-child(3) .card {
+    border: 2px solid #fd7e14; /* Borde de color naranja */
+  }
+  
+  /* Estilos para el título de las tarjetas */
+  .card-title {
+    margin-top: 10px;
+  }
+  
+  /* Color de fondo diferente para cada tarjeta */
+  .col-md-4:nth-child(1) .card-title {
+    color: #007bff; /* Color del título azul para la primera tarjeta */
+  }
+  
+  .col-md-4:nth-child(2) .card-title {
+    color: #28a745; /* Color del título verde para la segunda tarjeta */
+  }
+  
+  .col-md-4:nth-child(3) .card-title {
+    color: #fd7e14; /* Color del título naranja para la tercera tarjeta */
+  }

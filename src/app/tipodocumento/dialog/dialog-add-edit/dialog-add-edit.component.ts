@@ -46,8 +46,6 @@ export class DialogAddEditComponent implements OnInit {
 
   addEditTipoDocumento(){
 
-    console.log('Prueba', this.tipoDocumentoData)
-
     const tipoDocumento: TipoDocumento = {
       numeroDocumento: this.formTipoDocumento.value.numeroDocumento,
       tipoDocumento: this.formTipoDocumento.value.tipoDocumento

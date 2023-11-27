@@ -28,7 +28,7 @@ import { TipoDocumento } from "../model/tipo-documento";
   
     update(id: number, folio: Folio): Observable<Folio> {
       const url = `${this.urlEndPointUpdate}/${id}`;
-      return this.http.put<Folio>(url, Folio);
+      return this.http.put<Folio>(url, folio);
     }
   
     delete(id: number): Observable<void> {

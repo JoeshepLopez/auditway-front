@@ -83,9 +83,9 @@ export class DialogAddEditFolioComponent implements OnInit {
 
     if(this.folioData){
       this.formFolio.patchValue({
-        tipoDocumento: this.formFolio.value.tipoDocumento,
-        folioDesde: this.formFolio.value.folioDesde,
-        folioHasta: this.formFolio.value.folioHasta,
+        tipoDocumento: this.folioData.tipoDocumento,
+        folioDesde: this.folioData.folioDesde,
+        folioHasta: this.folioData.folioHasta,
       })
     }
     this.tituloAccion = "Editar";

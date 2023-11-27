@@ -46,8 +46,6 @@ export class DialogAddEditProductoComponent implements OnInit {
 
   addEditProducto(){
 
-    console.log('Prueba', this.productoData)
-
     const producto: Producto = {
       nombre: this.formProducto.value.nombre,
       precio: this.formProducto.value.precio,
@@ -78,9 +76,9 @@ export class DialogAddEditProductoComponent implements OnInit {
   ngOnInit() {
     if(this.productoData){
       this.formProducto.patchValue({
-        nombre: this.formProducto.value.nombre,
-        precio: this.formProducto.value.precio,
-        stock: this.formProducto.value.stock,
+        nombre: this.productoData.nombre,
+        precio: this.productoData.precio,
+        stock: this.productoData.stock,
       })
     }
     this.tituloAccion = "Editar";
