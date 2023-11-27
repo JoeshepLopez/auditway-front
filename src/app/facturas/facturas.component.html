@@ -17,7 +17,7 @@
           <!--<a [routerLink]="['/clientes']" class="btn btn-light btn-xs">&laquo; volver</a>-->
 
           <button [routerLink]="['/clientes']" mat-raised-button mat-dialog-close color="warn">
-            <mat-icon>arrow_back</mat-icon>    
+            <mat-icon>arrow_back</mat-icon>
             Volver
           </button>
 
@@ -133,15 +133,21 @@
           <div class="form-group row">
             <div class="col-sm-8">
 
-              
-            <button (click)="create(facturaForm)" mat-raised-button color="primary">
-              <mat-icon>add_circle</mat-icon>    
-              Emitir Documento
-            </button>
 
-              <!--
-              <input type="submit" (click)="create(facturaForm)" value="Emitir Documento" class="btn btn-secondary">
-              -->
+              <div class="form-group row">
+                <div class="col-sm-8 d-flex justify-content-between">
+                  <button (click)="create(facturaForm)" mat-raised-button color="primary">
+                    <mat-icon>add_circle</mat-icon>    
+                    Emitir Documento
+                  </button>
+              
+                  <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none" />
+                  <button mat-raised-button color="accent" (click)="fileInput.click()">
+                    <mat-icon>cloud_upload</mat-icon>
+                    Carga Masiva
+                  </button>                  
+                </div>
+              </div>
             </div>
           </div>
         </form>

@@ -13,10 +13,12 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 
 import swal from 'sweetalert2';
 import { TipoDocumento } from './models/tipo-documento';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-facturas',
-  templateUrl: './facturas.component.html'
+  templateUrl: './facturas.component.html',
+  styles: ['./factura.component.css']
 })
 export class FacturasComponent implements OnInit {
 
@@ -30,10 +32,13 @@ export class FacturasComponent implements OnInit {
 
   tipoDocumentos: TipoDocumento[] = [];
 
+  urlEndPoint: string = 'http://localhost:8080/api/facturas/carga-masiva';
+
   constructor(private clienteService: ClienteService,
     private facturaService: FacturaService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -134,7 +139,26 @@ export class FacturasComponent implements OnInit {
       );
     }
   }
-  
+
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      this.http.post<string>(this.urlEndPoint, formData).subscribe(
+        (response) => {
+          swal('Carga Masiva', `Carga masiva realizada con éxito.`, 'success');
+          this.router.navigate(['/clientes']);
+        },
+        (error) => {
+          console.log(error);
+          swal('Carga Masiva', `No fue posible realizar la carga masiva.`, 'error');
+        }
+      );
+    }
+  }
 
   compararTipoDocumento(o1: TipoDocumento, o2: TipoDocumento): boolean {
     if (o1 === undefined && o2 === undefined) {

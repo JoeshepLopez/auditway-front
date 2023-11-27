@@ -5,7 +5,6 @@ import { FacturaReporte } from './model/factura-reporte';
 import { FacturaReporteService } from './services/factura-reporte.service';
 import * as FileSaver from 'file-saver';
 import { DatePipe } from '@angular/common';
-import swal from 'sweetalert2';
 
 @Component({
   selector: "app-reporte-factura",
@@ -63,14 +62,9 @@ export class ReporteFacturaComponent implements AfterViewInit, OnInit {
 
   exportarCsv(dataSource: any) {
     console.log('datasouce', dataSource.data);
-
-    if(dataSource.data.lenght > 1){
       const csvContent = this.arrayToCSV(dataSource.data);
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
       FileSaver.saveAs(blob, 'exported_data.csv');
-    }
-
-    swal('Error', `No existen registros para descargar en formato CSV.`, 'error');
   }
 
   arrayToCSV(data: any[]): string {

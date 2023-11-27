@@ -1,0 +1,13 @@
+.custom-upload-button {
+    margin-top: 8px; /* Ajusta el margen superior según tus preferencias */
+    margin-left: 8px; /* Ajusta el margen izquierdo según tus preferencias */
+    display: inline-block; /* Permite que el botón esté en línea con otros elementos */
+    cursor: pointer; /* Muestra el cursor como puntero al pasar sobre el botón */
+  }
+  
+  /* Puedes agregar más estilos según tus preferencias, por ejemplo, ajustar el color, tamaño, etc. */
+  .custom-upload-button:hover {
+    background-color: #1976D2; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+  }
+  
