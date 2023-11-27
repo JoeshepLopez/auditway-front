@@ -1,0 +1,97 @@
+<div style="width: 85%; margin: 50px auto;">
+
+  <!-- Filtros por Fecha -->
+  <div class="form-row">
+    <!-- Campo Fecha Inicio -->
+    <div class="form-group col-md-6">
+      <label for="fechaInicio"><strong>Fecha Inicio:</strong></label>
+      <div class="input-group">
+        <input [matDatepicker]="miDatepicker" class="form-control" [(ngModel)]="fechaInicio" name="fechaInicio"
+          placeholder="Seleccione fecha desde">
+        <mat-datepicker-toggle [for]="miDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #miDatepicker></mat-datepicker>
+      </div>
+    </div>
+
+    <!-- Campo Fecha Termino -->
+    <div class="form-group col-md-6">
+      <label for="fechaTermino"><strong>Fecha Término:</strong></label>
+      <div class="input-group">
+        <input [matDatepicker]="miDatepicker2" class="form-control" [(ngModel)]="fechaTermino" name="fechaTermino"
+          placeholder="Seleccione fecha hasta">
+        <mat-datepicker-toggle [for]="miDatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #miDatepicker2></mat-datepicker>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="filtrarDocumentos(fechaInicio, fechaTermino)" mat-raised-button color="primary">
+    <mat-icon>search</mat-icon>
+    Filtrar documentos
+  </button>
+
+  <br><br>
+
+  <div>
+    <h3>Documentos Emitidos</h3>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-table">
+
+        <!-- Nombre -->
+        <ng-container matColumnDef="cliente.nombre">
+          <th mat-header-cell *matHeaderCellDef style="width: 16%;"> Nombre </th>
+          <td mat-cell *matCellDef="let element" style="width: 16%;"> {{element.cliente.nombre}} </td>
+        </ng-container>
+
+        <!-- Apellido -->
+        <ng-container matColumnDef="cliente.apellido">
+          <th mat-header-cell *matHeaderCellDef style="width:16%;"> Apellido </th>
+          <td mat-cell *matCellDef="let element" style="width: 16%;"> {{element.cliente.apellido}} </td>
+        </ng-container>
+
+        <!-- Rut -->
+        <ng-container matColumnDef="cliente.rut">
+          <th mat-header-cell *matHeaderCellDef style="width:16%;"> Rut </th>
+          <td mat-cell *matCellDef="let element" style="width: 16%;"> {{element.cliente.rut}} </td>
+        </ng-container>
+
+        <!-- Tipo Documento -->
+        <ng-container matColumnDef="nombreTipoDocumento">
+          <th mat-header-cell *matHeaderCellDef style="width: 16%;"> Tipo Documento </th>
+          <td mat-cell *matCellDef="let element" style="width: 16%;"> {{element.nombreTipoDocumento}} </td>
+        </ng-container>
+
+        <!-- Número de Folio -->
+        <ng-container matColumnDef="numeroFolio">
+          <th mat-header-cell *matHeaderCellDef style="width: 16%;"> N° Folio </th>
+          <td mat-cell *matCellDef="let element" style="width: 16%;"> {{element.numeroFolio}} </td>
+        </ng-container>
+
+        <!-- Total -->
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef style="width: 16%;"> $ Total </th>
+          <td mat-cell *matCellDef="let element" style="width: 16%;"> {{element.total}} </td>
+        </ng-container>
+
+        <!-- Estado SII -->
+        <ng-container matColumnDef="estadoSii">
+          <th mat-header-cell *matHeaderCellDef style="width: 16%;"> Estado SII </th>
+          <td mat-cell *matCellDef="let element" style="width: 16%;"> {{element.estadoSii}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- Paginador -->
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+    <br>
+
+    <button (click)="exportarCsv(dataSource)" mat-raised-button color="accent">
+      <mat-icon>download</mat-icon>
+      Descargar CSV
+    </button>
+
+</div>

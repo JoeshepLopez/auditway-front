@@ -42,6 +42,8 @@ import { TipoDocumentoService } from "./tipodocumento/services/tipo-documento.se
 import { DialogoDeleteFolioComponent } from "./folio/dialog/dialogo-delete/dialogo-delete.folio.component";
 import { DialogAddEditFolioComponent } from "./folio/dialog/dialog-add-edit/dialog-add-edit.folio.component";
 import { FolioComponent } from "./folio/folio.component";
+import { ReporteFacturaComponent } from "./reportes/factura-reporte.component";
+import { DatePipe } from "@angular/common";
 
 
 @NgModule({
@@ -66,7 +68,8 @@ import { FolioComponent } from "./folio/folio.component";
     DialogoDeleteTipoDocComponent,
     DialogoDeleteFolioComponent,
     DialogAddEditFolioComponent,
-    FolioComponent
+    FolioComponent,
+    ReporteFacturaComponent,
   ],
 
   imports: [
@@ -101,6 +104,7 @@ import { FolioComponent } from "./folio/folio.component";
 
   providers: [
     ClienteService,
+    DatePipe,
     { provide: LOCALE_ID, useValue: "es" },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

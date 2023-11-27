@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#"> {{ title }}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -24,17 +25,22 @@
       <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthenticated()">
         <a class="nav-link" [routerLink]="['/productos']">Productos</a>
       </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link" [routerLink]="['/reportes']">Reportes</a>
+      </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      <li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']" class="btn btn-outline-primary">Iniciar Sesión</a></li>
+      <li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']" class="btn btn-outline-primary">Iniciar
+          Sesión</a></li>
 
       <li *ngIf="authService.isAuthenticated()" class="dropdown">
-        <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{authService.usuario.username}}
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-           <button class="btn btn-sm " (click)="logout()" class="dropdown-item" type="submit">Salir</button>
+          <button class="btn btn-sm " (click)="logout()" class="dropdown-item" type="submit">Salir</button>
         </div>
       </li>
     </ul>

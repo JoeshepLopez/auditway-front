@@ -33,7 +33,7 @@ export class FormComponent implements OnInit {
   }
 
   create(): void {
-    console.log(this.cliente);
+    console.log(this.cliente.createAt);
     this.clienteService.create(this.cliente)
       .subscribe(
         cliente => {
